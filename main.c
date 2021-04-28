@@ -131,8 +131,8 @@ void Database_modify(struct Connection *conn, const int id)
 	printf("What to change?\n1.name\n2.email\n3.name and email\n\n> ");
 	scanf("%d", &inp);
 
-	char *new_name = NULL;
-	char *new_email = NULL;
+	char new_name[MAX_DATA];
+	char new_email[MAX_DATA];
 
 	if (inp == 1) {
 		printf("Enter new name: ");
@@ -232,7 +232,6 @@ int main(int argc, char *argv[])
 			break;
 
 		case 'm':
-			// segmentation fault
 			if (argc != 4)
 				die("modifying: ./main <filename> m <id>");
 			Database_modify(conn, id);	
